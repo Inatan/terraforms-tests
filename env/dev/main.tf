@@ -4,3 +4,7 @@ module "aws-infra" {
     regiao_aws = "sa-east-1"
     chave = "iac-dev"
 }
+
+output "IP"{
+    value = module.aws-infra.IP_Publico
+}

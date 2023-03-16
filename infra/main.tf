@@ -34,3 +34,6 @@ resource "aws_key_pair" "chaveSSH" {
   public_key = file("${var.chave}.pub")
 }
 
+output IP_Publico {
+  value       = aws_instance.app_server.public_ip
+}
