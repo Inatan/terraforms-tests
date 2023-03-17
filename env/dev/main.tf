@@ -3,8 +3,12 @@ module "aws-infra" {
     instancia = "t2.micro"
     regiao_aws = "sa-east-1"
     chave = "iac-dev"
+    grupo_seguranca = "DEV"
+    min = 0
+    max = 1
+    nome_grupo = "DEV"
 }
 
-output "IP"{
-    value = module.aws-infra.IP_Publico
-}
+# output "IP"{
+#     value = module.aws-infra.IP_Publico
+# }
