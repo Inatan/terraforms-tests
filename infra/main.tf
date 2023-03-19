@@ -43,7 +43,7 @@ resource "aws_autoscaling_group" "grupo" {
   name = var.nome_grupo
   max_size = var.max
   min_size = var.min
-  availability_zones = ["${var.regiao_aws}a","${var.regiao_aws}b"]
+  availability_zones = ["${var.regiao_aws}a","${var.regiao_aws}c"]
   launch_template {
     id = aws_launch_template.maquina.id
     version = "$Latest"
@@ -56,7 +56,7 @@ resource "aws_default_subnet" "subnet_1" {
 }
 
 resource "aws_default_subnet" "subnet_2" {
-  availability_zone = "${var.regiao_aws}b"
+  availability_zone = "${var.regiao_aws}c"
 }
 
 resource "aws_lb" "lb" {
@@ -85,14 +85,14 @@ resource "aws_lb_listener" "entrada_lb"{
   }
 }
 
-resource "aws_autoscaling_policy" "escala-prd" {
-  name = "terraform-escala"
-  autoscaling_group_name = var.nome_grupo
-  policy_type = "TargetTrackingScaling"
-  target_tracking_configuration {
-    predefined_metric_specification {
-      predefined_metric_type = "ASGAverageCPUUtilization"
-    }
-    target_value = 50.0
-  }
-}
+# resource "aws_autoscaling_policy" "escala-prd" {
+#   name = "terraform-escala"
+#   autoscaling_group_name = var.nome_grupo
+#   policy_type = "TargetTrackingScaling"
+#   target_tracking_configuration {
+#     predefined_metric_specification {
+#       predefined_metric_type = "ASGAverageCPUUtilization"
+#     }
+#     target_value = 50.0
+#   }
+# }

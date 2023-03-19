@@ -4,7 +4,7 @@ module "aws-infra" {
     regiao_aws = "sa-east-1"
     chave = "iac-dev"
     grupo_seguranca = "DEV"
-    min = 0
+    min = 1
     max = 1
     nome_grupo = "DEV"
 }
